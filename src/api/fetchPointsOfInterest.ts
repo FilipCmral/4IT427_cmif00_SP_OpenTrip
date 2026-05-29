@@ -1,17 +1,15 @@
 import { type PointOfInterest } from "../types/pointOfInterest.types";
 
 const apiKey = import.meta.env.VITE_API_KEY;
+const apiKeyParamString = `&apikey=${apiKey}`;
 
-export async function fetchPointsOfInterest(
-  cityName: string,
-): Promise<PointOfInterest[]> {
+export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfInterest[]> {
   const defaultLimit = 100; // Limit for number of points of interest
   const defaultRadius = 10000; // Radius in meters
   const defaultFormat = "json";
 
   const fetchCityDetailsResponse = await fetch(
-    `https://api.opentripmap.com/0.1/en/places/geoname?name=${encodeURIComponent(cityName)}
-        &key=${apiKey}`,
+    `https://api.opentripmap.com/0.1/en/places/geoname?name=${encodeURIComponent(cityName)}${apiKeyParamString}`,
   );
 
   if (!fetchCityDetailsResponse.ok) {
@@ -19,16 +17,11 @@ export async function fetchPointsOfInterest(
   }
 
   const cityDetails = await fetchCityDetailsResponse.json();
-  const { lattitude, longitude } = cityDetails;
+  console.log(cityDetails);
+  const { lat, lon } = cityDetails;
 
   const pointsOfInterestResponse = await fetch(
-    `https://api.opentripmap.com/0.1/en/places/geoname
-        ?radius=${defaultRadius}
-        &lon=${longitude}
-        &lat=${lattitude}
-        &limit=${defaultLimit}
-        &format=${defaultFormat}
-        &key=${apiKey}`,
+    `https://api.opentripmap.com/0.1/en/places/radius?lang=en&radius=${defaultRadius}&lon=${lon}&lat=${lat}&limit=${defaultLimit}&format=${defaultFormat}${apiKeyParamString}`,
   );
 
   if (!pointsOfInterestResponse.ok) {
