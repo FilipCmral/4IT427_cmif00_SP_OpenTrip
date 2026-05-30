@@ -30,5 +30,5 @@ export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfI
 
   const pointsOfInterestData = await pointsOfInterestResponse.json();
   console.log(pointsOfInterestData);
-  return pointsOfInterestData as PointOfInterest[];
+  return pointsOfInterestData as PointOfInterestSimple[];
 }

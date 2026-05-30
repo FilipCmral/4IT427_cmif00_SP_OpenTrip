@@ -13,7 +13,6 @@ interface SearchPointsOfInterestContextType {
   makeSearch: (query: string) => void;
   formTitle?: string;
   updateFormTitle?: (query: string) => void;
-  // TODO
 };
 
 const SearchPointsOfInterestContext = createContext<SearchPointsOfInterestContextType | null>(null);

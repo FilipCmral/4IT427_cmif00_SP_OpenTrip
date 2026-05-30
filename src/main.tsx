@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { SearchPointsOfInterestProvider } from './context/SearchPointsOfInterestContext.tsx'
+import { PointOfInterestDetailsProvider } from './context/PointOfInterestDetailsContext.tsx'
 
 import App from './App.tsx'
 import '@/styles/global.css'
@@ -21,7 +22,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <SearchPointsOfInterestProvider>
-        <App />
+        <PointOfInterestDetailsProvider>
+          <App />
+        </PointOfInterestDetailsProvider>
       </SearchPointsOfInterestProvider>
     </QueryClientProvider>
   </StrictMode>,
