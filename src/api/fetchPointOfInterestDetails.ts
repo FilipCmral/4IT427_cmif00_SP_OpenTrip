@@ -1,12 +1,12 @@
 import { type PointOfInterest } from "../types/pointOfInterest.types";
 
 const apiKey = import.meta.env.VITE_API_KEY;
-const apiKeyParamString = `&apikey=${apiKey}`;
+const apiKeyParamString = `?apikey=${apiKey}`;
 
 export async function fetchPointOfInterestDetails(pointOfInterestId: string,): Promise<PointOfInterest> {
 
   const fetchPointOfInterestResponse = await fetch(
-    `https://api.opentripmap.com/0.1/en/places/xid?xid=${encodeURIComponent(pointOfInterestId)}${apiKeyParamString}`,
+    `https://api.opentripmap.com/0.1/en/places/xid/${encodeURIComponent(pointOfInterestId)}${apiKeyParamString}`,
   );
 
   if (!fetchPointOfInterestResponse.ok) {

@@ -8,10 +8,10 @@ export function SearchForPointsOfInterestPage() {
     <>
       <SearchPointsOfInterestForm onSearch={makeSearch} updateFormTitle={updateFormTitle} />
         {pointsOfInterest.filter(pointOfInterest => (pointOfInterest.name && String(pointOfInterest.name).trim() !== ""))
-        .map((pointOfInterest, pointOfInterestIndex) => (
+        .map((pointOfInterest) => (
           <PointOfInterestCard
-            key={pointOfInterest.id ? pointOfInterest.id : pointOfInterestIndex}
-            id={pointOfInterest.id}
+            key={pointOfInterest.xid}
+            id={pointOfInterest.xid}
             name={pointOfInterest.name}
             kinds={pointOfInterest.kinds}
             rate={pointOfInterest.rate}

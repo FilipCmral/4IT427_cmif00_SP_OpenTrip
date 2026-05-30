@@ -10,7 +10,7 @@ interface PointOfInterestDetailsContextType {
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
-  getPointOfInterestDetails: (id: string) => void;
+  setPointOfInterestId: (id: string) => void;
 };
 
 const PointOfInterestDetailsContext = createContext<PointOfInterestDetailsContextType | null>(null);
@@ -27,14 +27,12 @@ export function PointOfInterestDetailsProvider({ children }: PointOfInterestDeta
     queryKey: ['pointOfInterestDetails', pointOfInterestId],
     queryFn: () => fetchPointOfInterestDetails(pointOfInterestId!),
     staleTime: Infinity,
+    enabled: true
   });
 
-  const getPointOfInterestDetails = (id: string) => {
-    setPointOfInterestId(id);
-  }
 
   return (
-    <PointOfInterestDetailsContext.Provider value={{ pointOfInterestDetails, isLoading, isError, error, getPointOfInterestDetails }}>
+    <PointOfInterestDetailsContext.Provider value={{ pointOfInterestDetails, isLoading, isError, error, setPointOfInterestId }}>
       {children}
     </PointOfInterestDetailsContext.Provider>
   );

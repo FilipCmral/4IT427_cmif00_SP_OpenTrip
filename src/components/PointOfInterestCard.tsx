@@ -1,3 +1,5 @@
+import { PointOfInterestDetailsButton } from "./PointOfInterestDetailsButton";
+
 interface PointOfInterestCardProps {
   id: string;
   name: string;
@@ -5,12 +7,13 @@ interface PointOfInterestCardProps {
   rate: string; //Rating of the place. The value is a string with a number 
 }
 
-export function PointOfInterestCard({ name, kinds, rate }: PointOfInterestCardProps) {
+export function PointOfInterestCard({ id, name, kinds, rate }: PointOfInterestCardProps) {
   return (
-    <div className="point-of-interest-card">
+    <div>
       <h3>{name}</h3>
       <p>Kinds: {kinds}</p>
       <p>Rating: {rate}⭐</p>
+      <PointOfInterestDetailsButton pointOfInterestId={id} />
     </div>
   );
 }
