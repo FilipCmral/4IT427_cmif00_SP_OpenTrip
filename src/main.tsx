@@ -10,7 +10,7 @@ import '@/styles/global.css'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      //staleTime: 5 * 60 * 1000,  
+      enabled: false,             // Disable automatic fetching
       retry: 2,                   // 2x retry on failure
     },
   },

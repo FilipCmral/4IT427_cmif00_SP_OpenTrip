@@ -8,7 +8,8 @@ function App() {
   const {data: serverPointsOfInterest = [], /*isLoading, isError, error*/} = useQuery({
     queryKey: ['pointsOfInterest'],
     queryFn: () => fetchPointsOfInterest("Prague"), // TODO make city name dynamic
-    retry: 2,                   // 2x retry on failure
+    enabled: true,             // Enable automatic fetching
+    staleTime: Infinity,   
   });
   //const [clientPointsOfInterest, setClientPointsOfInterest] = useState<PointOfInterest[]>(serverPointsOfInterest || []);
   console.log(serverPointsOfInterest);
