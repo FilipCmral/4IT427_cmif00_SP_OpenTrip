@@ -1,9 +1,9 @@
-import { type PointOfInterest } from "../types/pointOfInterest.types";
+import { type PointOfInterestSimple } from "../types/pointOfInterest.types";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const apiKeyParamString = `&apikey=${apiKey}`;
 
-export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfInterest[]> {
+export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfInterestSimple[]> {
   const defaultLimit = 100; // Limit for number of points of interest
   const defaultRadius = 10000; // Radius in meters
   const defaultFormat = "json";

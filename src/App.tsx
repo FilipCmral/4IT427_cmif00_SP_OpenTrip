@@ -16,8 +16,6 @@ function App() {
             name={pointOfInterest.name}
             kinds={pointOfInterest.kinds}
             rate={pointOfInterest.rate}
-            image={pointOfInterest.image}
-            wikipedia_extracts={pointOfInterest.wikipedia_extracts}
           />
         ))}
     </>

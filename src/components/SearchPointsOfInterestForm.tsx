@@ -18,9 +18,7 @@ export function SearchPointsOfInterestForm({ onSearch, updateFormTitle }: Search
         const formData = new FormData(e.currentTarget);
         const query = formData.get("searchBar") as string;
         onSearch(query);
-        if (updateFormTitle) {
-          updateFormTitle(query);
-        }
+        if (updateFormTitle) updateFormTitle(query);
       }}>
         <SearchBar searchBarName="searchBar" searchPlaceholder="Prague, Berlin, London..." labelText="City Name: " />
         <SearchButton buttonName="searchSubmitButton" buttonText="Search" />
