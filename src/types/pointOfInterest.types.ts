@@ -9,7 +9,7 @@ export interface PointOfInterestSimple {
 }
 
 export interface PointOfInterest extends PointOfInterestSimple {
-  wikipedia_extracts?: {
+  wikipedia_extracts: {
     title: string;
     text: string;
     html: string;

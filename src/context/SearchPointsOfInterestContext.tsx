@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useState } from "react";
 
-import { type PointOfInterest } from "../types/pointOfInterest.types";
+import { type PointOfInterestSimple } from "../types/pointOfInterest.types";
 
 import { fetchPointsOfInterest } from "../api/fetchPointsOfInterest";
 
 interface SearchPointsOfInterestContextType {
-  pointsOfInterest: PointOfInterest[];
+  pointsOfInterest: PointOfInterestSimple[];
   isLoading: boolean;
   isError: boolean;
   error: Error | null;
