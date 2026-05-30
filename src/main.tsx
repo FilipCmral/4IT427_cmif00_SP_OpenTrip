@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { SearchPointsOfInterestProvider } from './context/SearchPointsOfInterestContext.tsx'
 
 import App from './App.tsx'
 import '@/styles/global.css'
@@ -19,7 +20,9 @@ const queryClient = new QueryClient({
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <SearchPointsOfInterestProvider>
+        <App />
+      </SearchPointsOfInterestProvider>
     </QueryClientProvider>
   </StrictMode>,
 )

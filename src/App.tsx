@@ -1,25 +1,17 @@
-import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query';
+//import type { PointOfInterest } from './types/pointOfInterest.types';
 
-import { fetchPointsOfInterest } from './api/fetchPointsOfInterest';
-import type { PointOfInterest } from './types/pointOfInterest.types';
+import { SearchPointsOfInterestForm } from './components/SearchPointsOfInterestForm';
+import { useSearchPointsOfInterest } from './hooks/useSearchPointsOfInterest';
 
 function App() {
-  const {data: serverPointsOfInterest = [], /*isLoading, isError, error*/} = useQuery({
-    queryKey: ['pointsOfInterest'],
-    queryFn: () => fetchPointsOfInterest("Prague"), // TODO make city name dynamic
-    enabled: true,             // Enable automatic fetching
-    staleTime: Infinity,   
-  });
-  //const [clientPointsOfInterest, setClientPointsOfInterest] = useState<PointOfInterest[]>(serverPointsOfInterest || []);
-  console.log(serverPointsOfInterest);
-
+  const { pointsOfInterest, makeSearch } = useSearchPointsOfInterest();
 
   return (
     <>
+      <SearchPointsOfInterestForm onSearch={makeSearch} />
       <h1>Points of Interest in Prague</h1>
       <ul>
-        {serverPointsOfInterest.map((point) => (
+        {pointsOfInterest.map((point) => (
           <li key={point.id}>{point.name}</li>
         ))}
       </ul>
