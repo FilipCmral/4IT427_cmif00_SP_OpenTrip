@@ -1,4 +1,3 @@
-import { createContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { type PointOfInterest } from "../types/pointOfInterest.types";
@@ -11,6 +10,8 @@ interface SearchPointsOfInterestContextType {
   isError: boolean;
   error: Error | null;
   makeSearch: (query: string) => void;
+  formTitle?: string;
+  updateFormTitle?: (query: string) => void;
   // TODO
 };
 
@@ -33,10 +34,16 @@ export function SearchPointsOfInterestProvider({ children }: SearchPointsOfInter
 
   const makeSearch = (query: string) => {
     setSearchQuery(query);
+    updateFormTitle(query);
   };
 
+  const [formTitle, setFormTitle] = useState("Search for points of interest in different Cities");
+  const updateFormTitle = (query: string) => {
+    setFormTitle(`Search results for points of interest in ${query}`);
+  }
+
   return (
-    <SearchPointsOfInterestContext.Provider value={{ pointsOfInterest, isLoading, isError, error, makeSearch }}>
+    <SearchPointsOfInterestContext.Provider value={{ pointsOfInterest, isLoading, isError, error, makeSearch, formTitle, updateFormTitle }}>
       {children}
     </SearchPointsOfInterestContext.Provider>
   );
