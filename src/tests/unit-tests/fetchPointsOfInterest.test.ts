@@ -15,7 +15,7 @@ describe('fetchPointsOfInterest', async () => {
 
   it('Should throw an error for an invalid city name', async () => {
     await expect(fetchPointsOfInterest("InvalidCityNameThatDoesNotExist")).rejects.toThrow(
-      'Failed to fetch city details for city: InvalidCityNameThatDoesNotExist'
+      'Failed to fetch points of interest for city: InvalidCityNameThatDoesNotExist'
     );
   });
 });
