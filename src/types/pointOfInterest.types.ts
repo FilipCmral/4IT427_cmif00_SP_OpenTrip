@@ -8,6 +8,12 @@ export interface PointOfInterestSimple {
 }
 
 export interface PointOfInterest extends PointOfInterestSimple {
+  address?: {
+    road: string;
+    house_number: string;
+    city: string;
+    postcode: string;
+  }
   preview?: {
     source: string;
     height: number;

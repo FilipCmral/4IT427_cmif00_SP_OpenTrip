@@ -13,9 +13,8 @@ export function PointOfInterestDetailsPage() {
     }
   }, [id, setPointOfInterestId]);
 
-    console.log(id)
+  console.log("xid:", id);
   console.log('Point of Interest Details:', pointOfInterestDetails);
-  console.log('imgUrl', pointOfInterestDetails?.preview)
   const imageUrl = pointOfInterestDetails?.preview?.source?.replace(/\d+px-/, '500px-');
 
   return (
@@ -26,6 +25,11 @@ export function PointOfInterestDetailsPage() {
           <h2>{pointOfInterestDetails.name}</h2>
           <p>Rating: {pointOfInterestDetails.rate}⭐</p>
           <p>{pointOfInterestDetails?.wikipedia_extracts?.text ?? "No description available. :("}</p>
+          {pointOfInterestDetails?.address && (
+            <p>
+              {pointOfInterestDetails.address.road} {pointOfInterestDetails.address.house_number}, {pointOfInterestDetails.address.city} {pointOfInterestDetails.address.postcode}
+            </p>
+          )}
           <img src={imageUrl} alt={pointOfInterestDetails.name}></img>
         </div>
       )}
