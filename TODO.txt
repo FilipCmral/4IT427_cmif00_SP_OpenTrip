@@ -1,6 +1,4 @@
 Nějaké rozumější řazení výsledků
-Vizuály hlavní stránky
-Vizuály stránek s detaily
 
 loading states
 error handling
