@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { fetchPointsOfInterest } from '../api/fetchPointsOfInterest';
+import { fetchPointsOfInterest } from '../../api/fetchPointsOfInterest';
 
 
 describe('fetchPointsOfInterest', async () => {
