@@ -18,7 +18,22 @@
   margin-bottom: var(--space-lg);
 }
 
-.title span {
+.firstLetter {
+  color: var(--color-accent);
+}
+.secondLetter {
+  color: #5A8A5A;
+}
+.thirdLetter {
+  color: #B8A040;
+}
+.fourthLetter {
+  color: #B85A4A;
+}
+
+.title svg {
+  vertical-align: middle;
+  margin-left: var(--space-sm);
   color: var(--color-accent);
 }
 
