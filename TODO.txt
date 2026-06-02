@@ -1,0 +1,12 @@
+Nějaké rozumější řazení výsledků
+Vizuály hlavní stránky
+Vizuály stránek s detaily
+
+displaynutí toho, co ta věc vlastně je
+
+Wiki link?
+
+
+
+1 unit test pomocné funkce
+1 integrační test komponenty
