@@ -24,10 +24,17 @@ export function PointOfInterestDetailsPage() {
         <div>
           <h2>{pointOfInterestDetails.name}</h2>
           <p>Rating: {pointOfInterestDetails.rate}⭐</p>
-          <p>{pointOfInterestDetails?.wikipedia_extracts?.text ?? "No description available. :("}</p>
           {pointOfInterestDetails?.address && (
             <p>
               {pointOfInterestDetails.address.road} {pointOfInterestDetails.address.house_number}, {pointOfInterestDetails.address.city} {pointOfInterestDetails.address.postcode}
+            </p>
+          )}
+          <p>{pointOfInterestDetails?.wikipedia_extracts?.text ?? "No description available. :("}</p>
+          {pointOfInterestDetails?.wikipedia && (
+            <p>
+              <a href={pointOfInterestDetails.wikipedia} target="_blank" rel="noopener noreferrer">
+                Read more on Wikipedia
+              </a>
             </p>
           )}
           <img src={imageUrl} alt={pointOfInterestDetails.name}></img>

@@ -19,6 +19,7 @@ export interface PointOfInterest extends PointOfInterestSimple {
     height: number;
     width: number;
   }
+  wikipedia?: string;
   wikipedia_extracts?: {
     title: string;
     text: string;
