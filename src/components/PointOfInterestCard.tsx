@@ -1,6 +1,9 @@
+import { getPointOfInterestMainCategory } from "@/utils/getPointOfInterestMainCategory";
+
 import { PointOfInterestDetailsButton } from "./PointOfInterestDetailsButton";
 
 import styles from './PointOfInterestCard.module.css';
+
 
 interface PointOfInterestCardProps {
   id: string;
@@ -10,17 +13,7 @@ interface PointOfInterestCardProps {
 }
 
 export function PointOfInterestCard({ id, name, kinds, rate }: PointOfInterestCardProps) {
-  let mainCategoryFormatted = null;
-
-  if (kinds) {
-    console.log('Kinds:', kinds);
-    const kindsArray = kinds.split(',');
-    const mainCategory = kindsArray[kindsArray.length-1];
-    console.log('Main category:', mainCategory);
-    const mainCategoryWordSplit = mainCategory.split('_');
-    mainCategoryFormatted = mainCategoryWordSplit.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    mainCategoryFormatted = mainCategoryFormatted.replace(/ And /g, ' & ');
-}
+  const mainCategoryFormatted = getPointOfInterestMainCategory(kinds);
 
   return (
     <div className={styles.card}>
