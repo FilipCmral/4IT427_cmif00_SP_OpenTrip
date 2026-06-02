@@ -8,10 +8,22 @@ interface PointOfInterestCardProps {
 }
 
 export function PointOfInterestCard({ id, name, kinds, rate }: PointOfInterestCardProps) {
+  let mainCategoryFormatted = null;
+
+  if (kinds) {
+    console.log('Kinds:', kinds);
+    const kindsArray = kinds.split(',');
+    const mainCategory = kindsArray[kindsArray.length-1];
+    console.log('Main category:', mainCategory);
+    const mainCategoryWordSplit = mainCategory.split('_');
+    mainCategoryFormatted = mainCategoryWordSplit.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    mainCategoryFormatted = mainCategoryFormatted.replace(/ And /g, ' & ');
+}
+
   return (
     <div>
       <h3>{name}</h3>
-      <p>Kinds: {kinds}</p>
+      {mainCategoryFormatted && <p>{mainCategoryFormatted}</p>}
       <p>Rating: {rate}⭐</p>
       <PointOfInterestDetailsButton pointOfInterestId={id} />
     </div>
