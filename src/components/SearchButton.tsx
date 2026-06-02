@@ -1,3 +1,5 @@
+import styles from './SearchButton.module.css';
+
 interface SearchButtonProps {
   buttonName: string;
   buttonText: string;
@@ -5,7 +7,7 @@ interface SearchButtonProps {
 
 export function SearchButton({ buttonName, buttonText }: SearchButtonProps) {
   return (
-    <button type="submit" name={buttonName}>
+    <button className={styles.button}  type="submit" name={buttonName}>
       {buttonText}
     </button>
   );

@@ -1,6 +1,9 @@
+import { useSearchPointsOfInterest } from "@/hooks/useSearchPointsOfInterest";
+
 import { SearchBar } from "./SearchBar";
 import { SearchButton } from "./SearchButton";
-import { useSearchPointsOfInterest } from "@/hooks/useSearchPointsOfInterest";
+
+import styles from './SearchPointsOfInterestForm.module.css';
 
 interface SearchPointsOfInterestFormProps {
   onSearch: (query: string) => void;
@@ -12,8 +15,8 @@ export function SearchPointsOfInterestForm({ onSearch, updateFormTitle }: Search
 
   return (
     <>
-      <h2>{formTitle}</h2>
-      <form onSubmit={(e) => {
+      <h2 className={styles.title}>{formTitle}</h2>
+      <form className={styles.form} onSubmit={(e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const query = formData.get("searchBar") as string;

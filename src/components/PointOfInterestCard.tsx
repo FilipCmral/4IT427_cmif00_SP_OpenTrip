@@ -1,5 +1,7 @@
 import { PointOfInterestDetailsButton } from "./PointOfInterestDetailsButton";
 
+import styles from './PointOfInterestCard.module.css';
+
 interface PointOfInterestCardProps {
   id: string;
   name: string;
@@ -21,11 +23,13 @@ export function PointOfInterestCard({ id, name, kinds, rate }: PointOfInterestCa
 }
 
   return (
-    <div>
-      <h3>{name}</h3>
-      {mainCategoryFormatted && <p>{mainCategoryFormatted}</p>}
-      <p>Rating: {rate}⭐</p>
-      <PointOfInterestDetailsButton pointOfInterestId={id} />
+    <div className={styles.card}>
+      <h3 className={styles.name}>{name}</h3>
+      {mainCategoryFormatted && <p className={styles.category}>{mainCategoryFormatted}</p>}
+      <p className={styles.rating}>Rating: {rate}⭐</p>
+      <div className={styles.footer}>
+        <PointOfInterestDetailsButton pointOfInterestId={id} />
+      </div>
     </div>
   );
 }

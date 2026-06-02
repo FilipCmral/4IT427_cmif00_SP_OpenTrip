@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styles from './SearchBar.module.css';
+
 interface SearchBarProps {
   searchBarName: string;
   searchPlaceholder?: string;
@@ -10,9 +12,10 @@ export function SearchBar({ searchBarName, searchPlaceholder, labelText }: Searc
   const [value, setValue] = useState("");
 
   return (
-    <div>
-      <label htmlFor={searchBarName}>{labelText || ""}</label>
+    <div className={styles.wrapper}>
+      <label className={styles.label} htmlFor={searchBarName}>{labelText || ""}</label>
       <input
+        className={styles.input}
         name={searchBarName}
         type="text"
         placeholder={searchPlaceholder || ""}

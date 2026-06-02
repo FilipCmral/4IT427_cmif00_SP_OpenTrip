@@ -2,4 +2,5 @@ Nějaké rozumější řazení výsledků
 Vizuály hlavní stránky
 Vizuály stránek s detaily
 
-Wiki link?
+loading states
+error handling

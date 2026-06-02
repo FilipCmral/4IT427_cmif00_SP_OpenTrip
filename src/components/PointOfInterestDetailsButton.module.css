@@ -1,0 +1,22 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-accent-hover);
+}
+
+.link::after {
+  content: '→';
+  transition: transform var(--transition-fast);
+}
+
+.link:hover::after {
+  transform: translateX(3px);
+}
