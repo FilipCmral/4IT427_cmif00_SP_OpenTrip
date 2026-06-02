@@ -4,7 +4,7 @@ import { fetchPointsOfInterest } from '../api/fetchPointsOfInterest';
 
 describe('fetchPointsOfInterest', async () => {
   const praguePOIs = await fetchPointsOfInterest("Prague");
-  it('should return an array of points of interest for a valid city name', () => {
+  it('Should return an array of points of interest for a valid city name', () => {
     expect(Array.isArray(praguePOIs)).toBe(true);
     expect(praguePOIs.length).toBeGreaterThan(0);
     expect(praguePOIs[0]).toHaveProperty('xid');
@@ -13,7 +13,7 @@ describe('fetchPointsOfInterest', async () => {
     expect(praguePOIs[0]).toHaveProperty('rate');
   });
 
-  it('should throw an error for an invalid city name', async () => {
+  it('Should throw an error for an invalid city name', async () => {
     await expect(fetchPointsOfInterest("InvalidCityNameThatDoesNotExist")).rejects.toThrow(
       'Failed to fetch city details for city: InvalidCityNameThatDoesNotExist'
     );
