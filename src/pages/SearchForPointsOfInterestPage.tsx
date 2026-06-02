@@ -15,7 +15,9 @@ export function SearchForPointsOfInterestPage() {
     <div className={styles.page}>
       <div className={styles.header}>
         <h1 className={styles.title}>
-          Open Trip  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
+          Open 
+           <span style={{ color: '#4A6B7C' }}>T</span><span style={{ color: '#5A8A5A' }}>r</span><span style={{ color: '#B8A040' }}>i</span><span style={{ color: '#B85A4A' }}>p</span>  
+           <svg style={{ color: '#4A6B7C' }} xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg>
         </h1>
         <SearchPointsOfInterestForm onSearch={makeSearch} updateFormTitle={updateFormTitle} />
       </div>
