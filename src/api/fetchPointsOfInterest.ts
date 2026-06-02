@@ -4,7 +4,7 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const apiKeyParamString = `&apikey=${apiKey}`;
 
 export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfInterestSimple[]> {
-  const defaultLimit = 100; // Limit for number of points of interest
+  const defaultLimit = 300; // Limit for number of points of interest
   const defaultRadius = 10000; // Radius in meters
   const defaultFormat = "json";
 
@@ -29,6 +29,14 @@ export async function fetchPointsOfInterest(cityName: string,): Promise<PointOfI
   }
 
   const pointsOfInterestData = await pointsOfInterestResponse.json();
+
+  pointsOfInterestData.sort((a: PointOfInterestSimple, b: PointOfInterestSimple) => {
+    const rateA = parseFloat(a.rate);
+    const rateB = parseFloat(b.rate);
+
+    return rateB - rateA;
+  });
   console.log(pointsOfInterestData);
+
   return pointsOfInterestData as PointOfInterestSimple[];
 }
